@@ -1,0 +1,36 @@
+.window {
+  position: absolute;
+  z-index: 9;
+  text-align: center;
+  display: block;
+
+  min-width: 300px;
+  min-height: 100px;
+  resize: both;
+  /* overflow: auto; */
+  overflow:hidden;
+}
+
+.title-bar {
+  cursor: move;
+}
+
+.title-bar-controls button {
+  cursor: pointer;
+}
+
+/* The animation code */
+@keyframes example {
+  0% {
+    scale: 100%;
+  }
+  100% {
+    scale: 0%;
+  }
+}
+
+.animationdingetje {
+  animation-name: example;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+}
