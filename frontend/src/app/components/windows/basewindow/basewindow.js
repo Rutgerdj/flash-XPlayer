@@ -114,12 +114,14 @@ class AppWindow extends React.Component {
   }
 
   minimize() {
-    let top = this.appwindow.getBoundingClientRect().top;
+    let rect = this.appwindow.getBoundingClientRect();
+    
     anime({
       targets: this.appwindow,
       easing: "easeInOutQuad",
       duration: 250,
-      translateY: this.minimized ? 0 : window.innerHeight - top,
+      translateY: this.minimized ? 0 : window.innerHeight - rect.top,
+      translateX: this.minimized ? 0 : -rect.left,
       complete: () => {
         this.minimized = !this.minimized;
       },
