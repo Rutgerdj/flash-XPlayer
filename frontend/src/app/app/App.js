@@ -6,6 +6,7 @@ import Windows from "app/components/windows/windows";
 import "./App.css";
 import robbie from "app/swfs/Robbie2D.swf";
 import AppWindow from "app/components/windows/basewindow/basewindow";
+import robbie_hok from "../../images/robbie_hok.png";
 
 class App extends React.Component {
   constructor(props) {
@@ -18,31 +19,37 @@ class App extends React.Component {
           name: "Robbies avontuur",
           swf: robbie,
           windowClass: SwfWindow,
+          icon: robbie_hok
         },
         {
           name: "Test window",
           title: "Test window",
           windowClass: AppWindow,
+          icon: robbie_hok
         },
         {
           name: "Test window #2",
           title: "Test window",
           windowClass: AppWindow,
+          icon: robbie_hok
         },
         {
           name: "Test window #3",
           title: "Test window",
           windowClass: AppWindow,
+          icon: robbie_hok
         },
         {
           name: "Test window #4",
           title: "Test window",
           windowClass: AppWindow,
+          icon: robbie_hok
         },
         {
           name: "Test window #5",
           title: "Test window",
           windowClass: AppWindow,
+          icon: robbie_hok
         },
       ],
     };
