@@ -16,7 +16,7 @@ export default class TaskBar extends React.Component {
             <StartMenu />
 
             <div className="active-apps">
-              {value.games.map((x) => (
+              {value.windows.map((x) => (
                 <TaskbarIcon
                   src={x.icon}
                   handleClick={this.props.handleClick}

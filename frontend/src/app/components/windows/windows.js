@@ -29,7 +29,7 @@ export default class Windows extends React.Component {
       <ProgramContext.Consumer>
         {(value) => (
           <div>
-            {value.games.map((x) => {
+            {value.windows.map((x) => {
               if (x.windowClass === SwfWindow) {
                 return (
                   <SwfWindow

@@ -1,7 +1,7 @@
 import React from "react";
 
 const AppsContext = React.createContext({
-  games: [],
+  windows: [],
 });
 
 export default AppsContext;

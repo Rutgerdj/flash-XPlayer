@@ -14,7 +14,7 @@ class App extends React.Component {
     this.windows = () => {};
 
     this.state = {
-      games: [
+      windows: [
         {
           name: "Robbies avontuur",
           swf: robbie,
@@ -23,30 +23,6 @@ class App extends React.Component {
         },
         {
           name: "Test window",
-          title: "Test window",
-          windowClass: AppWindow,
-          icon: robbie_hok
-        },
-        {
-          name: "Test window #2",
-          title: "Test window",
-          windowClass: AppWindow,
-          icon: robbie_hok
-        },
-        {
-          name: "Test window #3",
-          title: "Test window",
-          windowClass: AppWindow,
-          icon: robbie_hok
-        },
-        {
-          name: "Test window #4",
-          title: "Test window",
-          windowClass: AppWindow,
-          icon: robbie_hok
-        },
-        {
-          name: "Test window #5",
           title: "Test window",
           windowClass: AppWindow,
           icon: robbie_hok
