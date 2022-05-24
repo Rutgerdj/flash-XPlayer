@@ -2,6 +2,8 @@ import React from "react";
 import ProgramContext from "app/app/Contexts";
 import SwfWindow from "./gamewindow/gamewindow";
 import AppWindow from "./basewindow/basewindow";
+import "./windows.css"
+
 export default class Windows extends React.Component {
   static contextType = ProgramContext;
 
@@ -28,7 +30,7 @@ export default class Windows extends React.Component {
     return (
       <ProgramContext.Consumer>
         {(value) => (
-          <div>
+          <div id="windows">
             {value.windows.map((x) => {
               if (x.windowClass === SwfWindow) {
                 return (

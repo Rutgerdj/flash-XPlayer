@@ -1,8 +1,7 @@
 #taskbar {
   overflow-x: clip;
-  z-index: 50;
   display: flex;
-  position: absolute;
+  position: fixed;
   height: 43px;
   left: 0;
   bottom: 0;

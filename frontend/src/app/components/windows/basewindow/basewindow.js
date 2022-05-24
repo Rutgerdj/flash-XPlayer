@@ -1,6 +1,8 @@
 import "./basewindow.css";
 import React from "react";
 import anime from "animejs/lib/anime.es.js";
+import $ from 'jquery';
+import "jquery-ui/ui/widgets/draggable";
 
 const transformVariables = ["top", "left", "width", "height"];
 
@@ -27,6 +29,10 @@ class AppWindow extends React.Component {
 
     this.setWindow = (el) => {
       this.appwindow = el;
+      $(el).draggable({
+        containment: "#windows",
+        handle: ".title-bar"
+      });
     };
 
     this.previousTransform = {
@@ -44,53 +50,11 @@ class AppWindow extends React.Component {
   onResize(x, y) {
   }
 
-  dragMouseDown(e) {
-    e = e || window.event;
-    e.preventDefault();
-    // get the mouse cursor position at startup:
-    this.setState({
-      pos3: e.clientX,
-      pos4: e.clientY,
-    });
-
-    document.onmouseup = (ev) => this.closeDragElement(ev, e.target);
-    // call a function whenever the cursor moves:
-    document.onmousemove = (ev) => this.elementDrag(ev, e.target);
-
-  }
-
-  elementDrag(e, target) {
-    e = e || window.event;
-    e.preventDefault();
-
-    let pos2 = e.clientY < 0 ? this.state.pos2 : this.state.pos4 - e.clientY
-    let pos1 = e.clientX < 0 ? this.state.pos1 : this.state.pos3 - e.clientX
-
-    this.setState({
-      pos1: pos1,
-      pos2: pos2,
-      pos3: e.clientX,
-      pos4: e.clientY,
-    });
-
-    let targetTop = target.parentNode.offsetTop - this.state.pos2;
-    let targetLeft = target.parentNode.offsetLeft - this.state.pos1;
-
-    target.parentNode.style.top = Math.max(0, targetTop) + "px";
-    target.parentNode.style.left = Math.max(0, targetLeft) + "px";
-  }
-
-  closeDragElement(ev, target) {
-    // stop moving when mouse button is released:
-    document.onmouseup = null;
-    document.onmousemove = null;
-  }
-
   mouseDown() {
     document.querySelectorAll(".window").forEach((x) => {
-      x.style.zIndex = 49;
+      x.style.zIndex = -10;
     });
-    this.appwindow.style.zIndex = 50;
+    this.appwindow.style.zIndex = -9;
   }
 
   render() {
@@ -100,7 +64,7 @@ class AppWindow extends React.Component {
         ref={this.setWindow}
         onMouseDown={() => this.mouseDown()}
       >
-        <div className="title-bar" onMouseDown={(ev) => this.dragMouseDown(ev)}>
+        <div className="title-bar">
           <div className="title-bar-text">{this.props.title}</div>
           <div className="title-bar-controls">
             <button aria-label="Minimize" onClick={() => this.minimize()} />
