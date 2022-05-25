@@ -1,0 +1,13 @@
+#expandStartMenu {
+  left: 0;
+  position: absolute;
+  z-index: -100;
+  float: left;
+  display: block;
+  background-color: #ccc;
+  display: hidden;
+}
+
+#expandStartMenu div {
+  font-size: xx-large;
+}

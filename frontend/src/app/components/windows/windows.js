@@ -2,7 +2,7 @@ import React from "react";
 import ProgramContext from "app/app/Contexts";
 import SwfWindow from "./gamewindow/gamewindow";
 import AppWindow from "./basewindow/basewindow";
-import "./windows.css"
+import "./windows.css";
 
 export default class Windows extends React.Component {
   static contextType = ProgramContext;

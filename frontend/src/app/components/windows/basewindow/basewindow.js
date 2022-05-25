@@ -1,7 +1,7 @@
 import "./basewindow.css";
 import React from "react";
 import anime from "animejs/lib/anime.es.js";
-import $ from 'jquery';
+import $ from "jquery";
 import "jquery-ui/ui/widgets/draggable";
 
 const transformVariables = ["top", "left", "width", "height"];
@@ -31,7 +31,7 @@ class AppWindow extends React.Component {
       this.appwindow = el;
       $(el).draggable({
         containment: "#windows",
-        handle: ".title-bar"
+        handle: ".title-bar",
       });
     };
 
@@ -47,8 +47,7 @@ class AppWindow extends React.Component {
     this.observer.observe(this.appwindow);
   }
 
-  onResize(x, y) {
-  }
+  onResize(x, y) {}
 
   mouseDown() {
     document.querySelectorAll(".window").forEach((x) => {
@@ -79,7 +78,7 @@ class AppWindow extends React.Component {
 
   minimize() {
     let rect = this.appwindow.getBoundingClientRect();
-    
+
     anime({
       targets: this.appwindow,
       easing: "easeInOutQuad",

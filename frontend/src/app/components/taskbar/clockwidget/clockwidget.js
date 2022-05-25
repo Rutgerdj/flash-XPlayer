@@ -36,7 +36,7 @@ class ClockWidget extends React.Component {
     return (
       <div id="clockWidget">
         <div className="menu-icon">
-          <img src={cd} alt="compactdisk-icon"/>
+          <img src={cd} alt="compactdisk-icon" />
         </div>
         <div id="clock">
           <span>{this.formatTime(this.state.time)}</span>

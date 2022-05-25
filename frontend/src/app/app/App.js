@@ -19,13 +19,13 @@ class App extends React.Component {
           name: "Robbies avontuur",
           swf: robbie,
           windowClass: SwfWindow,
-          icon: robbie_hok
+          icon: robbie_hok,
         },
         {
           name: "Test window",
           title: "Test window",
           windowClass: AppWindow,
-          icon: robbie_hok
+          icon: robbie_hok,
         },
       ],
     };

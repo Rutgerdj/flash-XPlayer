@@ -2,7 +2,6 @@ import React from "react";
 import "./taskbaricon.css";
 
 export default class TaskbarIcon extends React.Component {
-
   render() {
     return (
       <div
