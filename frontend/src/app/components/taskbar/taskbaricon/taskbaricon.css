@@ -1,5 +1,6 @@
 .taskbaricon {
   display: flex;
+  max-width: 150px;
   margin-right: 2px;
   background: linear-gradient(
     0deg,

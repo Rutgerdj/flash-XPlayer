@@ -6,7 +6,6 @@ import shutoff from "images/start/shutoff.png";
 
 export default class ExpandMenu extends React.Component {
   toggle() {
-    console.log(this.menu.style.top);
     $(this.menu).toggle();
   }
 
