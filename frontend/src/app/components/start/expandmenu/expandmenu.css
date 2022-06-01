@@ -3,11 +3,57 @@
   position: absolute;
   z-index: -100;
   float: left;
-  display: block;
+  display: flex;
+  flex-direction: column;
   background-color: #ccc;
   display: hidden;
+  width: 300px;
 }
 
 #expandStartMenu div {
   font-size: xx-large;
+}
+
+.column {
+  float: left;
+  width: calc(50% - 1px);
+}
+
+.right {
+  background-color: #d7e7ff;
+  border-left: 2px solid #a9bfdc;
+}
+
+.left {
+  background-color: white;
+}
+
+.topsection {
+  background: linear-gradient(0deg, rgba(66,140,239,1) 0%, rgba(12,98,207,1) 68%, rgba(70,137,229,1) 100%); 
+  padding-bottom: 20px;
+  padding-top: 10px
+}
+
+.topsection span {
+  font-size: xx-large;
+  margin-left: 20px;
+}
+
+.bottomsection {
+  background: linear-gradient(0deg, rgba(13,99,215,1) 0%, rgba(42,124,227,1) 68%, rgba(64,135,238,1) 100%); 
+}
+
+.bottomButtons {
+  margin: 0px 10px;
+  display: flex;
+  float: right;
+}
+
+.bottomButtons div {
+  margin-left: 10px;
+}
+
+.bottomButtons img {
+  margin-right: 5px;
+  vertical-align: middle;
 }
