@@ -41,6 +41,7 @@ export default class ExpandMenu extends React.Component {
 
   componentDidMount() {
     this.menu.style.top = `-${this.menu.scrollHeight}px`;
+    $(this.menu).toggle();
   }
 
   selectProfilePicture() {
