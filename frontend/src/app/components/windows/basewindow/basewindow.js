@@ -3,6 +3,7 @@ import React from "react";
 import anime from "animejs/lib/anime.es.js";
 import $ from "jquery";
 import "jquery-ui/ui/widgets/draggable";
+import ProgramContext from "app/app/Contexts";
 
 const transformVariables = ["top", "left", "width", "height"];
 
@@ -58,22 +59,36 @@ class AppWindow extends React.Component {
 
   render() {
     return (
-      <div
-        className="window"
-        ref={this.setWindow}
-        onMouseDown={() => this.mouseDown()}
-      >
-        <div className="title-bar">
-          <div className="title-bar-text">{this.props.title}</div>
-          <div className="title-bar-controls">
-            <button aria-label="Minimize" onClick={() => this.minimize()} />
-            <button aria-label="Maximize" onClick={() => this.maximize()} />
-            <button aria-label="Close" />
+      <ProgramContext.Consumer>
+        {({ windows, setWindows }) => (
+          <div
+            className="window"
+            ref={this.setWindow}
+            onMouseDown={() => this.mouseDown()}
+          >
+            <div className="title-bar">
+              <div className="title-bar-text">{this.props.title}</div>
+              <div className="title-bar-controls">
+                <button aria-label="Minimize" onClick={() => this.minimize()} />
+                <button aria-label="Maximize" onClick={() => this.maximize()} />
+                <button
+                  aria-label="Close"
+                  onClick={() => this.close(setWindows)}
+                />
+              </div>
+            </div>
+            <div className="window-body">{this.childComp()}</div>
           </div>
-        </div>
-        <div className="window-body">{this.childComp()}</div>
-      </div>
+        )}
+      </ProgramContext.Consumer>
     );
+  }
+
+  close(setWindows) {
+    setWindows((x) => {
+      x.windows = x.windows.filter((y) => y.title !== this.props.title);
+      return x;
+    });
   }
 
   minimize() {

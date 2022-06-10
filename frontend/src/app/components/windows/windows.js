@@ -1,11 +1,11 @@
 import React from "react";
-import ProgramContext from "app/app/Contexts";
 import SwfWindow from "./gamewindow/gamewindow";
 import AppWindow from "./basewindow/basewindow";
 import "./windows.css";
+import AppsContext from "app/app/Contexts";
 
 export default class Windows extends React.Component {
-  static contextType = ProgramContext;
+  static contextType = AppsContext;
 
   constructor() {
     super();
@@ -28,32 +28,32 @@ export default class Windows extends React.Component {
 
   render() {
     return (
-      <ProgramContext.Consumer>
-        {(value) => (
+      <AppsContext.Consumer>
+        {({ windows, setWindows }) => (
           <div id="windows">
-            {value.windows.map((x) => {
+            {windows.map((x) => {
               if (x.windowClass === SwfWindow) {
                 return (
                   <SwfWindow
-                    ref={(y) => this.setApp(y, x.name)}
-                    key={x.name}
-                    title={x.name}
+                    ref={(y) => this.setApp(y, x.title)}
+                    key={x.title}
+                    title={x.title}
                     swf={x.swf}
                   />
                 );
               } else {
                 return (
                   <AppWindow
-                    ref={(y) => this.setApp(y, x.name)}
-                    key={x.name}
-                    title={x.name}
+                    ref={(y) => this.setApp(y, x.title)}
+                    key={x.title}
+                    title={x.title}
                   />
                 );
               }
             })}
           </div>
         )}
-      </ProgramContext.Consumer>
+      </AppsContext.Consumer>
     );
   }
 }

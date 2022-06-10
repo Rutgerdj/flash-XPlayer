@@ -20,8 +20,8 @@ export default class TaskBar extends React.Component {
                 <TaskbarIcon
                   src={x.icon}
                   handleClick={this.props.handleClick}
-                  key={x.name}
-                  name={x.name}
+                  key={x.title}
+                  name={x.title}
                 />
               ))}
             </div>
