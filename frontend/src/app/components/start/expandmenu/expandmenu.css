@@ -6,7 +6,7 @@
   display: block;
   flex-direction: column;
   display: hidden;
-  width: 300px;
+  width: 450px;
 }
 
 #expandStartMenu div {
@@ -16,6 +16,10 @@
 .column {
   float: left;
   width: calc(50% - 1px);
+}
+
+#taskbar .column {
+  height: auto;
 }
 
 .right {
@@ -78,3 +82,61 @@
   margin-right: 5px;
   vertical-align: middle;
 }
+
+#taskbar div.programItems {
+  display: flex;
+  height: fit-content;
+}
+
+.programItem span {
+  display: inline-block;
+  vertical-align: center;
+  color: black;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: large;
+  overflow: hidden;
+  max-width: 150px;
+}
+
+.programItem div {
+  border: 1px solid white;
+}
+
+.programItem div:hover {
+  border: 1px solid #deeafc;
+}
+
+.programItem + .programItem {
+  margin-top: 5px;
+}
+
+#taskbar .programItem div {
+  display: flex;
+  margin: 5px;
+  padding: 5px;
+}
+
+#taskbar .programItem {
+  height: unset;
+}
+
+.programItem:hover {
+  background-color: #deeafc;
+}
+
+.programItem:hover div {
+  border: 1px solid #deeafc;
+}
+
+.programItem:active div {
+  border-radius: 5px;
+  background-color: #b9d4fc;
+  border: 1px dotted black;
+}
+
+#taskbar .programItems .left {
+  height: 300px;
+  overflow-y: scroll;
+}
+

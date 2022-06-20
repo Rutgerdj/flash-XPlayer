@@ -3,6 +3,7 @@ import robbie_hok from "../../images/robbie_hok.png";
 import AppWindow from "app/components/windows/basewindow/basewindow";
 import robbie from "app/swfs/Robbie2D.swf";
 import SwfWindow from "../components/windows/gamewindow/gamewindow";
+import available from "../available.json";
 
 const AppsContext = React.createContext({});
 
@@ -25,6 +26,7 @@ export class AppsProvider extends React.Component {
         },
       ],
       setWindows: this.setState.bind(this),
+      availableApps: available.availableApps,
     };
   }
 

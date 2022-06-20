@@ -3,6 +3,7 @@ import "./expandmenu.css";
 import $ from "jquery";
 import logoff from "images/start/logoff.png";
 import shutoff from "images/start/shutoff.png";
+import ProgramContext from "app/app/Contexts";
 
 const profile_pictures = [
   "airplane.jpg",
@@ -36,7 +37,6 @@ export default class ExpandMenu extends React.Component {
       selectedProfilePicture: profile_pictures[0],
     };
 
-    console.log(this.state);
   }
 
   componentDidMount() {
@@ -51,35 +51,48 @@ export default class ExpandMenu extends React.Component {
 
   render() {
     return (
-      <div id="expandStartMenu" ref={(m) => (this.menu = m)}>
-        <div className="topsection">
-          <img
-            width="40"
-            height="40"
-            onClick={() => this.selectProfilePicture()}
-            src={`/images/profile_pictures/${this.state.selectedProfilePicture}`}
-            alt="profilepicture"
-          />
-          <span>Epic Gamer</span>
-        </div>
-        <div>
-          <div className="column left">Left</div>
-          <div className="column right">Right</div>
-        </div>
-        <div className="bottomsection">
-          <div className="bottomButtons">
-            <div>
-              <img id="logoffbutton" width="30" src={logoff} alt="" />
-              <span>Log off</span>
+      <ProgramContext.Consumer>
+        {(value) => (
+          <div id="expandStartMenu" ref={(m) => (this.menu = m)}>
+            <div className="topsection">
+              <img
+                width="40"
+                height="40"
+                onClick={() => this.selectProfilePicture()}
+                src={`/images/profile_pictures/${this.state.selectedProfilePicture}`}
+                alt="profilepicture"
+              />
+              <span>Epic Gamer</span>
             </div>
+            <div className="programItems">
+              <div className="column left">
+                {value.availableApps.map((app) => (
+                  <div key={app.name}  className="programItem">
+                    <div>
+                      <img src={`/images/icons/${app.icon}`} width="20" height="20" alt={app.name} />
+                      <span title={app.title}>{app.title}</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <div className="column right">Right</div>
+            </div>
+            <div className="bottomsection">
+              <div className="bottomButtons">
+                <div>
+                  <img id="logoffbutton" width="30" src={logoff} alt="" />
+                  <span>Log off</span>
+                </div>
 
-            <div>
-              <img id="shutoffbutton" width="30" src={shutoff} alt="" />
-              <span>Shut Down</span>
+                <div>
+                  <img id="shutoffbutton" width="30" src={shutoff} alt="" />
+                  <span>Shut Down</span>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
+        )}
+      </ProgramContext.Consumer>
     );
   }
 }
