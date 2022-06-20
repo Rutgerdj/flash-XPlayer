@@ -12,6 +12,7 @@ class AppWindow extends React.Component {
     super(props);
     this.fullscreen = false;
     this.minimized = false;
+    this.minimizing = false;
 
     this.observer = new ResizeObserver((entries) => {
       for (let entry of entries) {
@@ -59,7 +60,7 @@ class AppWindow extends React.Component {
             ref={this.setWindow}
             onMouseDown={() => this.mouseDown()}
           >
-            <div className="title-bar">
+            <div className="title-bar" onClick={() => this.onResize(400, 400)}>
               <div className="title-bar-text">{this.props.obj.title}</div>
               <div className="title-bar-controls">
                 <button aria-label="Minimize" onClick={() => this.minimize()} />
@@ -85,6 +86,11 @@ class AppWindow extends React.Component {
   }
 
   minimize() {
+    if (this.minimizing) {
+      return;
+    }
+    this.minimizing = true;
+
     let rect = this.appwindow.getBoundingClientRect();
 
     anime({
@@ -95,6 +101,7 @@ class AppWindow extends React.Component {
       translateX: this.minimized ? 0 : -rect.left,
       complete: () => {
         this.minimized = !this.minimized;
+        this.minimizing = false;
       },
     });
   }
