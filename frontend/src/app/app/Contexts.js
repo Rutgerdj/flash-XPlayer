@@ -1,7 +1,5 @@
 import React from "react";
-import robbie_hok from "../../images/robbie_hok.png";
 import AppWindow from "app/components/windows/basewindow/basewindow";
-import robbie from "app/swfs/Robbie2D.swf";
 import SwfWindow from "../components/windows/gamewindow/gamewindow";
 import available from "../available.json";
 import { v4 as uuidv4 } from "uuid";
@@ -13,21 +11,7 @@ export class AppsProvider extends React.Component {
     super(props);
 
     this.state = {
-      windows: [
-        {
-          id: 0,
-          title: "Test window",
-          windowClass: AppWindow,
-          icon: robbie_hok,
-        },
-        {
-          id: 1,
-          title: "Robbies avontuur",
-          windowClass: SwfWindow,
-          swf: robbie,
-          icon: robbie_hok,
-        },
-      ],
+      windows: [],
       setWindows: this.setState.bind(this),
       addWindow: this.addWindow.bind(this),
       availableApps: available.availableApps,
@@ -35,11 +19,25 @@ export class AppsProvider extends React.Component {
   }
 
   addWindow(window) {
+    let windowClass = AppWindow;
+    switch (window.class) {
+      case "base":
+        windowClass = AppWindow;
+        break;
+      case "swf":
+        windowClass = SwfWindow;
+        break;
+      default:
+        windowClass = AppWindow;
+        break;
+    }
+
     let id = uuidv4();
     this.setState((x) => {
       x.windows.push({
         id,
         ...window,
+        windowClass: windowClass,
       });
       return x;
     });

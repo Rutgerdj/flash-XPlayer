@@ -4,7 +4,6 @@ import $ from "jquery";
 import logoff from "images/start/logoff.png";
 import shutoff from "images/start/shutoff.png";
 import ProgramContext from "app/app/Contexts";
-import AppWindow from "app/components/windows/basewindow/basewindow";
 import { v4 as uuidv4 } from "uuid";
 
 const profile_pictures = [
@@ -72,11 +71,7 @@ export default class ExpandMenu extends React.Component {
                     key={uuidv4()}
                     className="programItem"
                     onClick={() => {
-                      value.addWindow({
-                        title: "Test window",
-                        windowClass: AppWindow,
-                        icon: "images/icons/icon_cd.png",
-                      });
+                      value.addWindow(app);
                     }}
                   >
                     <div>

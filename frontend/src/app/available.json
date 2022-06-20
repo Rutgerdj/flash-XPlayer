@@ -1,63 +1,20 @@
 {
   "availableApps": [
     {
-      "title": "Test Window Lorem ipsum dolor sit amet",
-      "windowClass": "base",
-      "icon": "icon_cd.png"
+      "title": "Letterdolhof 2",
+      "class": "swf",
+      "icon": "icon_cd.png",
+      "swf": "Letterdolhof.swf"
+    },
+    {
+      "title": "Robbies speurhondenspel",
+      "class": "swf",
+      "swf": "Robbie2D.swf",
+      "icon": "robbie_hok.png"
     },
     {
       "title": "Test Window Lorem ipsum dolor sit amet",
-      "windowClass": "base",
-      "icon": "icon_cd.png"
-    },
-    {
-      "title": "Test Window Lorem ipsum dolor sit amet",
-      "windowClass": "base",
-      "icon": "icon_cd.png"
-    },
-    {
-      "title": "Test Window Lorem ipsum dolor sit amet",
-      "windowClass": "base",
-      "icon": "icon_cd.png"
-    },
-    {
-      "title": "Test Window Lorem ipsum dolor sit amet",
-      "windowClass": "base",
-      "icon": "icon_cd.png"
-    },
-    {
-      "title": "Test Window Lorem ipsum dolor sit amet",
-      "windowClass": "base",
-      "icon": "icon_cd.png"
-    },
-    {
-      "title": "Test Window Lorem ipsum dolor sit amet",
-      "windowClass": "base",
-      "icon": "icon_cd.png"
-    },
-    {
-      "title": "Test Window Lorem ipsum dolor sit amet",
-      "windowClass": "base",
-      "icon": "icon_cd.png"
-    },
-    {
-      "title": "Test Window Lorem ipsum dolor sit amet",
-      "windowClass": "base",
-      "icon": "icon_cd.png"
-    },
-    {
-      "title": "Test Window Lorem ipsum dolor sit amet",
-      "windowClass": "base",
-      "icon": "icon_cd.png"
-    },
-    {
-      "title": "Test Window Lorem ipsum dolor sit amet",
-      "windowClass": "base",
-      "icon": "icon_cd.png"
-    },
-    {
-      "title": "Test Window Lorem ipsum dolor sit amet",
-      "windowClass": "base",
+      "class": "base",
       "icon": "icon_cd.png"
     }
   ]

@@ -18,3 +18,12 @@
 .title-bar-controls button {
   cursor: pointer;
 }
+
+.title-bar img {
+  vertical-align: middle;
+}
+
+.title-bar-text {
+  font-size: medium;
+  vertical-align: text-top;
+}

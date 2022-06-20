@@ -60,8 +60,16 @@ class AppWindow extends React.Component {
             ref={this.setWindow}
             onMouseDown={() => this.mouseDown()}
           >
-            <div className="title-bar" onClick={() => this.onResize(400, 400)}>
-              <div className="title-bar-text">{this.props.obj.title}</div>
+            <div className="title-bar">
+              <div>
+                <img
+                  width="20"
+                  height="20"
+                  src={`/images/icons/${this.props.obj.icon}`}
+                  alt=""
+                />
+                <span className="title-bar-text">{this.props.obj.title}</span>
+              </div>
               <div className="title-bar-controls">
                 <button aria-label="Minimize" onClick={() => this.minimize()} />
                 <button aria-label="Maximize" onClick={() => this.maximize()} />
