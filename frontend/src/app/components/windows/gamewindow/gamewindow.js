@@ -35,6 +35,7 @@ export default class SwfWindow extends AppWindow {
     this.player.load({
       url: this.props.swf,
       allowScriptAccess: true,
+      letterbox: "on",
       base: "gamefiles",
     });
 
