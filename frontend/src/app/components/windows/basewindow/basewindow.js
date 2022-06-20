@@ -13,13 +13,6 @@ class AppWindow extends React.Component {
     this.fullscreen = false;
     this.minimized = false;
 
-    this.state = {
-      pos1: 0,
-      pos2: 0,
-      pos3: 0,
-      pos4: 0,
-    };
-
     this.observer = new ResizeObserver((entries) => {
       for (let entry of entries) {
         let width = entry.contentRect.width;
@@ -67,7 +60,7 @@ class AppWindow extends React.Component {
             onMouseDown={() => this.mouseDown()}
           >
             <div className="title-bar">
-              <div className="title-bar-text">{this.props.title}</div>
+              <div className="title-bar-text">{this.props.obj.title}</div>
               <div className="title-bar-controls">
                 <button aria-label="Minimize" onClick={() => this.minimize()} />
                 <button aria-label="Maximize" onClick={() => this.maximize()} />
@@ -86,7 +79,7 @@ class AppWindow extends React.Component {
 
   close(setWindows) {
     setWindows((x) => {
-      x.windows = x.windows.filter((y) => y.title !== this.props.title);
+      x.windows = x.windows.filter((y) => y.id !== this.props.obj.id);
       return x;
     });
   }

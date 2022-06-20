@@ -16,8 +16,8 @@ export default class Windows extends React.Component {
     this.apps = {};
   }
 
-  setApp(el, name) {
-    this.apps[name] = el;
+  setApp(app, el) {
+    this.apps[app.id] = el;
   }
 
   componentDidMount() {}
@@ -35,18 +35,17 @@ export default class Windows extends React.Component {
               if (x.windowClass === SwfWindow) {
                 return (
                   <SwfWindow
-                    ref={(y) => this.setApp(y, x.title)}
-                    key={x.title}
-                    title={x.title}
-                    swf={x.swf}
+                    ref={(y) => this.setApp(x, y)}
+                    key={x.id}
+                    obj={x}
                   />
                 );
               } else {
                 return (
                   <AppWindow
-                    ref={(y) => this.setApp(y, x.title)}
-                    key={x.title}
-                    title={x.title}
+                    ref={(y) => this.setApp(x, y)}
+                    obj={x}
+                    key={x.id}
                   />
                 );
               }

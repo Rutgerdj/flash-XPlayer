@@ -6,10 +6,10 @@ export default class TaskbarIcon extends React.Component {
     return (
       <div
         className="taskbaricon"
-        onClick={() => this.props.handleClick(this.props.name)}
+        onClick={() => this.props.handleClick(this.props.obj.id)}
       >
-        <img src={this.props.src} alt=""></img>
-        <span className="taskbaricon-name">{this.props.name}</span>
+        <img src={this.props.obj.icon} alt=""></img>
+        <span className="taskbaricon-name">{this.props.obj.title}</span>
       </div>
     );
   }

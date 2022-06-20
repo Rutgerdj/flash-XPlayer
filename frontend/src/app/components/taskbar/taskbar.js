@@ -18,10 +18,9 @@ export default class TaskBar extends React.Component {
             <div className="active-apps">
               {value.windows.map((x) => (
                 <TaskbarIcon
-                  src={x.icon}
+                  obj={x}
                   handleClick={this.props.handleClick}
-                  key={x.title}
-                  name={x.title}
+                  key={x.id}
                 />
               ))}
             </div>

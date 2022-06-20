@@ -4,6 +4,8 @@ import $ from "jquery";
 import logoff from "images/start/logoff.png";
 import shutoff from "images/start/shutoff.png";
 import ProgramContext from "app/app/Contexts";
+import AppWindow from "app/components/windows/basewindow/basewindow";
+import { v4 as uuidv4 } from "uuid";
 
 const profile_pictures = [
   "airplane.jpg",
@@ -36,7 +38,6 @@ export default class ExpandMenu extends React.Component {
     this.state = {
       selectedProfilePicture: profile_pictures[0],
     };
-
   }
 
   componentDidMount() {
@@ -67,9 +68,24 @@ export default class ExpandMenu extends React.Component {
             <div className="programItems">
               <div className="column left">
                 {value.availableApps.map((app) => (
-                  <div key={app.name}  className="programItem">
+                  <div
+                    key={uuidv4()}
+                    className="programItem"
+                    onClick={() => {
+                      value.addWindow({
+                        title: "Test window",
+                        windowClass: AppWindow,
+                        icon: "images/icons/icon_cd.png",
+                      });
+                    }}
+                  >
                     <div>
-                      <img src={`/images/icons/${app.icon}`} width="20" height="20" alt={app.name} />
+                      <img
+                        src={`/images/icons/${app.icon}`}
+                        width="20"
+                        height="20"
+                        alt={app.name}
+                      />
                       <span title={app.title}>{app.title}</span>
                     </div>
                   </div>
