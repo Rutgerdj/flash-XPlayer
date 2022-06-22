@@ -26,30 +26,32 @@ export default class Windows extends React.Component {
     x.apps[y].minimize();
   }
 
+  renderProgram(details) { 
+    if (details.windowClass === SwfWindow) {
+      return (
+        <SwfWindow
+          ref={(y) => this.setApp(details, y)}
+          key={details.id}
+          obj={details}
+        />
+      );
+    } else if (details.windowClass === AppWindow) {
+      return (
+        <AppWindow
+          ref={(y) => this.setApp(details, y)}
+          obj={details}
+          key={details.id}
+        />
+      );
+    }
+  }
+
   render() {
     return (
       <AppsContext.Consumer>
         {({ windows, setWindows }) => (
           <div id="windows">
-            {windows.map((x) => {
-              if (x.windowClass === SwfWindow) {
-                return (
-                  <SwfWindow
-                    ref={(y) => this.setApp(x, y)}
-                    key={x.id}
-                    obj={x}
-                  />
-                );
-              } else {
-                return (
-                  <AppWindow
-                    ref={(y) => this.setApp(x, y)}
-                    obj={x}
-                    key={x.id}
-                  />
-                );
-              }
-            })}
+            {windows.map(this.renderProgram.bind(this))}
           </div>
         )}
       </AppsContext.Consumer>
