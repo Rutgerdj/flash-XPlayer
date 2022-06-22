@@ -1,7 +1,7 @@
 import React from "react";
 import AppWindow from "app/components/windows/basewindow/basewindow";
 import SwfWindow from "../components/windows/gamewindow/gamewindow";
-import available from "../available.json";
+import available from "../available_generated.json";
 import { v4 as uuidv4 } from "uuid";
 
 const AppsContext = React.createContext({});

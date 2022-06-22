@@ -62,12 +62,7 @@ class AppWindow extends React.Component {
           >
             <div className="title-bar">
               <div>
-                <img
-                  width="20"
-                  height="20"
-                  src={`/images/icons/${this.props.obj.icon}`}
-                  alt=""
-                />
+                <img width="20" height="20" src={this.props.obj.icon} alt="" />
                 <span className="title-bar-text">{this.props.obj.title}</span>
               </div>
               <div className="title-bar-controls">

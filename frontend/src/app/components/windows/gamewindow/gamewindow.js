@@ -33,10 +33,10 @@ export default class SwfWindow extends AppWindow {
   componentDidMount() {
     super.componentDidMount();
     this.player.load({
-      url: `/swfs/${this.props.obj.swf}`,
+      url: `/games/${this.props.obj.title}/game.swf`,
       allowScriptAccess: true,
       letterbox: "on",
-      base: "gamefiles",
+      base: `/games/${this.props.obj.title}/files`,
     });
 
     this.player.addEventListener("loadeddata", (ev) => {

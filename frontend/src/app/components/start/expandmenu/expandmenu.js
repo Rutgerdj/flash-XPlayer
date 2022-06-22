@@ -76,7 +76,7 @@ export default class ExpandMenu extends React.Component {
                   >
                     <div>
                       <img
-                        src={`/images/icons/${app.icon}`}
+                        src={app.icon}
                         width="20"
                         height="20"
                         alt={app.name}
