@@ -42,7 +42,14 @@ export default class ExpandMenu extends React.Component {
 
   componentDidMount() {
     this.menu.style.top = `-${this.menu.scrollHeight}px`;
-    $(this.menu).toggle();
+    this.toggle();
+
+    window.addEventListener("keyup", (ev) => {
+      if (ev.keyCode === 17 || ev.keyCode === 91 || ev.metaKey) {
+        this.toggle();
+      }
+    })
+
   }
 
   selectProfilePicture() {
