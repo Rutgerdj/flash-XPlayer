@@ -140,3 +140,6 @@
   overflow-y: scroll;
 }
 
+#startMenu:first-child {
+  display: contents;
+}

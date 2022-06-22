@@ -5,6 +5,7 @@ import logoff from "images/start/logoff.png";
 import shutoff from "images/start/shutoff.png";
 import ProgramContext from "app/app/Contexts";
 import { v4 as uuidv4 } from "uuid";
+import OutsideClickHandler from 'react-outside-click-handler';
 
 const profile_pictures = [
   "airplane.jpg",
@@ -53,6 +54,12 @@ export default class ExpandMenu extends React.Component {
     return (
       <ProgramContext.Consumer>
         {(value) => (
+          <OutsideClickHandler
+            onOutsideClick={(x) => {
+              if (x.target.id !== "startButton") {
+                $(this.menu).hide();
+              }
+            }}>
           <div id="expandStartMenu" ref={(m) => (this.menu = m)}>
             <div className="topsection">
               <img
@@ -72,6 +79,7 @@ export default class ExpandMenu extends React.Component {
                     className="programItem"
                     onClick={() => {
                       value.addWindow(app);
+                      $(this.menu).hide();
                     }}
                   >
                     <div>
@@ -102,8 +110,10 @@ export default class ExpandMenu extends React.Component {
               </div>
             </div>
           </div>
+          </OutsideClickHandler>
         )}
       </ProgramContext.Consumer>
+      
     );
   }
 }
