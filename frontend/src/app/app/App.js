@@ -4,6 +4,8 @@ import ProgramContext from "./Contexts";
 import Windows from "app/components/windows/windows";
 import "./App.css";
 import { AppsProvider } from "./Contexts";
+import { isMobile } from 'react-device-detect';
+import AppWindow from "app/components/windows/basewindow/basewindow";
 
 class App extends React.Component {
   constructor(props) {
@@ -16,7 +18,8 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <AppsProvider>
+        {!isMobile ? (
+          <AppsProvider>
           <Windows
             ref={(inst) => {
               this.windows = inst;
@@ -27,6 +30,18 @@ class App extends React.Component {
             handleClick={(x) => this.windows.updateThing(this.windows, x)}
           />
         </AppsProvider>
+        ) : (
+          <div>
+            <AppWindow
+              obj={{title: "Device not supported", icon: "/images/icons/warn.png"}}
+              center={true}
+              noActions
+            >
+                <h1>Windows XP is not supported on mobile devices :\</h1>
+            </AppWindow>
+          </div>
+        )}
+        
       </div>
     );
   }

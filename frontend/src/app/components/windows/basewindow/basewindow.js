@@ -40,6 +40,11 @@ class AppWindow extends React.Component {
 
   componentDidMount() {
     this.observer.observe(this.appwindow);
+    if (this.props.center) {
+      this.appwindow.style.width = "250px";
+      this.appwindow.style.top = `${window.innerHeight / 2 - this.appwindow.clientHeight / 2}px`;
+      this.appwindow.style.left = `${window.innerWidth / 2 - this.appwindow.clientWidth / 2}px`;
+    }
   }
 
   onResize(x, y) {}
@@ -65,7 +70,8 @@ class AppWindow extends React.Component {
                 <img width="20" height="20" src={this.props.obj.icon} alt="" />
                 <span className="title-bar-text">{this.props.obj.title}</span>
               </div>
-              <div className="title-bar-controls">
+              {this.props.noActions ? null : (
+                <div className="title-bar-controls">
                 <button aria-label="Minimize" onClick={() => this.minimize()} />
                 <button aria-label="Maximize" onClick={() => this.maximize()} />
                 <button
@@ -73,6 +79,7 @@ class AppWindow extends React.Component {
                   onClick={() => this.close(setWindows)}
                 />
               </div>
+              )}
             </div>
             <div className="window-body">{this.childComp()}</div>
           </div>
