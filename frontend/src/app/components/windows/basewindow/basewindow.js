@@ -40,11 +40,8 @@ class AppWindow extends React.Component {
 
   componentDidMount() {
     this.observer.observe(this.appwindow);
-    if (this.props.center) {
-      this.appwindow.style.width = "250px";
-      this.appwindow.style.top = `${window.innerHeight / 2 - this.appwindow.clientHeight / 2}px`;
-      this.appwindow.style.left = `${window.innerWidth / 2 - this.appwindow.clientWidth / 2}px`;
-    }
+    this.appwindow.style.top = `${window.innerHeight / 2 - this.appwindow.clientHeight / 2}px`;
+    this.appwindow.style.left = `${window.innerWidth / 2 - this.appwindow.clientWidth / 2}px`;
   }
 
   onResize(x, y) {}

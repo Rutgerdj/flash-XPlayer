@@ -34,7 +34,6 @@ class App extends React.Component {
           <div>
             <AppWindow
               obj={{title: "Device not supported", icon: "/images/icons/warn.png"}}
-              center={true}
               noActions
             >
                 <h1>Windows XP is not supported on mobile devices :\</h1>
