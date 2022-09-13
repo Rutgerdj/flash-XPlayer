@@ -26,7 +26,7 @@ export default class Windows extends React.Component {
     x.apps[y].minimize();
   }
 
-  renderProgram(details) { 
+  renderProgram(details) {
     if (details.windowClass === SwfWindow) {
       return (
         <SwfWindow
@@ -50,9 +50,7 @@ export default class Windows extends React.Component {
     return (
       <AppsContext.Consumer>
         {({ windows, setWindows }) => (
-          <div id="windows">
-            {windows.map(this.renderProgram.bind(this))}
-          </div>
+          <div id="windows">{windows.map(this.renderProgram.bind(this))}</div>
         )}
       </AppsContext.Consumer>
     );

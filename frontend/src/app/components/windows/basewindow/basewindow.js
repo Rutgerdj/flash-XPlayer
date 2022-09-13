@@ -40,8 +40,12 @@ class AppWindow extends React.Component {
 
   componentDidMount() {
     this.observer.observe(this.appwindow);
-    this.appwindow.style.top = `${window.innerHeight / 2 - this.appwindow.clientHeight / 2}px`;
-    this.appwindow.style.left = `${window.innerWidth / 2 - this.appwindow.clientWidth / 2}px`;
+    this.appwindow.style.top = `${
+      window.innerHeight / 2 - this.appwindow.clientHeight / 2
+    }px`;
+    this.appwindow.style.left = `${
+      window.innerWidth / 2 - this.appwindow.clientWidth / 2
+    }px`;
   }
 
   onResize(x, y) {}
@@ -69,13 +73,19 @@ class AppWindow extends React.Component {
               </div>
               {this.props.noActions ? null : (
                 <div className="title-bar-controls">
-                <button aria-label="Minimize" onClick={() => this.minimize()} />
-                <button aria-label="Maximize" onClick={() => this.maximize()} />
-                <button
-                  aria-label="Close"
-                  onClick={() => this.close(setWindows)}
-                />
-              </div>
+                  <button
+                    aria-label="Minimize"
+                    onClick={() => this.minimize()}
+                  />
+                  <button
+                    aria-label="Maximize"
+                    onClick={() => this.maximize()}
+                  />
+                  <button
+                    aria-label="Close"
+                    onClick={() => this.close(setWindows)}
+                  />
+                </div>
               )}
             </div>
             <div className="window-body">{this.childComp()}</div>
