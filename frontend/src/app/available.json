@@ -1,9 +1,5 @@
 {
   "availableApps": [
-    {
-      "title": "Test Window Lorem ipsum dolor sit amet",
-      "class": "base",
-      "icon": "/images/icons/icon_cd.png"
-    }
+    
   ]
 }
