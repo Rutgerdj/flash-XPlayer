@@ -92,6 +92,25 @@
   margin-right: 5px;
 }
 
+.right .programItem div {
+  border: 1px solid #deeafc;
+  border-radius: 5px;
+}
+
+.right .programItem div:hover {
+  background-color: white;
+}
+
+img {
+  user-select: none;
+}
+
+hr {
+  width: 75%;
+  margin: 0 auto;
+  border: 1px solid #b9d4fc;
+}
+
 .programItem span {
   display: inline-block;
   vertical-align: center;
@@ -101,6 +120,10 @@
   font-size: large;
   overflow: hidden;
   max-width: 150px;
+}
+
+a {
+  text-decoration-line: none;
 }
 
 .programItem div {
