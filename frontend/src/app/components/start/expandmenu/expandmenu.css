@@ -88,6 +88,10 @@
   height: fit-content;
 }
 
+.programItem img {
+  margin-right: 5px;
+}
+
 .programItem span {
   display: inline-block;
   vertical-align: center;

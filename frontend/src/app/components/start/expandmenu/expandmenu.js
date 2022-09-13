@@ -36,7 +36,7 @@ export default class ExpandMenu extends React.Component {
     super(props);
 
     this.state = {
-      selectedProfilePicture: profile_pictures[0],
+      selectedProfilePicture: 0,
     };
   }
 
@@ -53,8 +53,7 @@ export default class ExpandMenu extends React.Component {
   }
 
   selectProfilePicture() {
-    let random = Math.floor(Math.random() * profile_pictures.length);
-    this.setState({ selectedProfilePicture: profile_pictures[random] });
+    this.setState({ selectedProfilePicture: (this.state.selectedProfilePicture + 1) % profile_pictures.length });
   }
 
   render() {
@@ -73,7 +72,7 @@ export default class ExpandMenu extends React.Component {
                 width="40"
                 height="40"
                 onClick={() => this.selectProfilePicture()}
-                src={`/images/profile_pictures/${this.state.selectedProfilePicture}`}
+                src={`/images/profile_pictures/${profile_pictures[this.state.selectedProfilePicture]}`}
                 alt="profilepicture"
               />
               <span>Epic Gamer</span>
